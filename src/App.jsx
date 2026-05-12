@@ -8,6 +8,7 @@ function App() {
   const [logs, setLogs] = useState([]);
   const [inventoryStatus, setInventoryStatus] = useState('raw'); // raw -> analyzing -> tokenized
   const [fundingStatus, setFundingStatus] = useState('none'); // none -> escrowed -> liquidated/repaid
+  const [walletAddress, setWalletAddress] = useState(null);
   const logsEndRef = useRef(null);
 
   const addLog = (msg, type = 'info') => {
@@ -21,6 +22,14 @@ function App() {
   }, [logs]);
 
   // Demo Actions
+  const connectWallet = () => {
+    addLog('Connecting to XRPL Testnet...', 'info');
+    setTimeout(() => {
+      setWalletAddress('rQHvAR5ae3P8EvGHWgorwt8kZ7tqpuHVJs');
+      addLog('Connected to wallet: rQHvAR5ae3P8EvGHWgorwt8kZ7tqpuHVJs', 'success');
+    }, 1000);
+  };
+
   const runAIEvaluation = () => {
     setInventoryStatus('analyzing');
     addLog('Fetching Shopify Inventory Data...', 'info');
@@ -89,8 +98,17 @@ function App() {
           </button>
         </div>
         <div>
-          <button className="btn" style={{background: 'rgba(255,255,255,0.1)'}}>
-            <Wallet size={16} /> Connect XRPL
+          <button 
+            className="btn" 
+            style={{
+              background: walletAddress ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255,255,255,0.1)', 
+              color: walletAddress ? 'var(--accent)' : 'inherit',
+              border: walletAddress ? '1px solid var(--accent)' : 'none'
+            }} 
+            onClick={connectWallet}
+            disabled={!!walletAddress}
+          >
+            <Wallet size={16} /> {walletAddress ? `${walletAddress.slice(0,5)}...${walletAddress.slice(-4)}` : 'Connect XRPL'}
           </button>
         </div>
       </header>
