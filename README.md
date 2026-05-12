@@ -1,10 +1,4 @@
 # 📦 FlowStock AI
-> **AI-Powered Inventory RWA & Liquidity Financing on XRPL**  
-> 2025 XRPL Hackathon Seoul - [KFIP 2026] Submission
-
-![XRPL](https://img.shields.io/badge/XRPL-100%25-blue?style=for-the-badge&logo=ripple)
-![AI](https://img.shields.io/badge/AI-Predictive_Model-orange?style=for-the-badge)
-![RWA](https://img.shields.io/badge/RWA-Inventory_Tokenization-green?style=for-the-badge)
 
 ## 📌 About The Project (프로젝트 소개)
 **FlowStock AI** is a B2B inventory collateral financing platform that combines AI predictive modeling with XRPL's RWA tokenization (MPT). It solves the massive liquidity crisis of e-commerce SMEs by evaluating the real-time value of "unsold inventory" and tokenizing it to attract institutional liquidity.
